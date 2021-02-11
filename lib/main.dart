@@ -32,11 +32,17 @@ class _HomePageState extends State<HomePage> {
       ),
     body: Container(
       alignment: Alignment.center,
+      color: Colors.teal[200],
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        Image(
+        image: AssetImage('assets/penguin.png'),
+        height: 200,
+        width: 200
+      ),
         Text(
-        "We are in this together",
+        "We are in this together!",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 20.0,
