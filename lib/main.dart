@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'home.dart';
+import 'register.dart';
+import 'login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -7,49 +11,35 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Home Page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
-  }
-}
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          // Check for errors
+          if (snapshot.hasError) {
+            // TODO: There's an error
+          }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+          if (snapshot.connectionState == ConnectionState.done) {
+            return MaterialApp(
+              title: 'Home Page',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              home: Register(),
+              routes: <String, WidgetBuilder>{
+                '/register': (BuildContext context) => Register(),
+                '/login': (BuildContext context) => Login(),
+              },
+            );
+          }
 
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text(
-        "Home Page",
-      )),
-      body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal[200],
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                    image: AssetImage('assets/penguin.png'),
-                    height: 200,
-                    width: 200),
-                Text("We are in this together!",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: "Times New Roman",
-                    ))
-              ])),
-    );
+          // TODO: Loading, perhaps return a loading splash?
+          return Container();
+        });
   }
 }
 
