@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'chatbot-page.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,13 +42,17 @@ class _HomePageState extends State<HomePage> {
         height: 200,
         width: 200
       ),
-        Text(
-        "We are in this together!",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 20.0,
-          fontFamily: "Times New Roman",
-        ))
+        OutlinedButton(
+          child: Text('Daily check-in'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return ChatbotPage();
+              }),
+            );
+          },
+        ),
       ])),
     );
 }
