@@ -1,3 +1,4 @@
+import 'package:chatbot_test1/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -111,9 +112,51 @@ class _RegisterState extends State<Register> {
                       // If the password is the same as confirm password
                       if (pwdInputController.text ==
                           confirmPwdInputController.text) {
-                        FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: emailInputController.text,
-                            password: pwdInputController.text);
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: emailInputController.text,
+                                password: pwdInputController.text)
+                            .then((user) => {
+                                  user.user
+                                      .updateProfile(
+                                        displayName:
+                                            firstNameInputController.text +
+                                                " " +
+                                                lastNameInputController.text,
+                                      )
+                                      .then(
+                                        (_) => {
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => HomePage(
+                                                title: firstNameInputController
+                                                        .text +
+                                                    " " +
+                                                    lastNameInputController
+                                                        .text +
+                                                    "\'s Home Page",
+                                              ),
+                                            ),
+                                            (_) => false,
+                                          )
+                                              .then((_) => {
+                                                    firstNameInputController
+                                                        .clear(),
+                                                    lastNameInputController
+                                                        .clear(),
+                                                    emailInputController
+                                                        .clear(),
+                                                    pwdInputController.clear(),
+                                                    confirmPwdInputController
+                                                        .clear(),
+                                                  })
+                                              .catchError((e) => print(e)),
+                                        },
+                                      )
+                                      .catchError((e) => print(e)),
+                                })
+                            .catchError((e) => print(e));
                       } else {
                         showDialog(
                           context: context,
@@ -140,7 +183,7 @@ class _RegisterState extends State<Register> {
                 FlatButton(
                   child: Text("Login here"),
                   onPressed: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ],
