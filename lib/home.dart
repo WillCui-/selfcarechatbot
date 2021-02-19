@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'chatbot-page.dart';
+
+import 'chatbot_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title, this.guest = false}) : super(key: key);
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Theme.of(context).primaryColor,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage('assets/penguin.png'),
                     height: 200,
                     width: 200),
-                OutlinedButton(
+                ElevatedButton(
                   child: Text('Daily check-in'),
                   onPressed: () {
                     Navigator.push(

@@ -36,7 +36,7 @@ Run `flutter devices` and check if `Chrome (web)` shows up in the connected devi
 
 ### iOS app setup
 
-If you have a Mac, it is recommended to set up iOS development on your Mac.
+If you have a Mac, it is recommended to [set up iOS development](https://flutter.dev/docs/get-started/install/macos#ios-setup) on your Mac.
 
 Run `flutter devices` and check if `ios` shows up in the connected devices list.
 

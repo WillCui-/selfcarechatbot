@@ -1,5 +1,6 @@
 import 'package:chatbot_test1/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'home.dart';
 import 'register.dart';
@@ -25,9 +26,11 @@ class MyApp extends StatelessWidget {
 
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
-            title: 'Home Page',
             theme: ThemeData(
-              primarySwatch: Colors.blue,
+              primarySwatch: Colors.teal,
+              textTheme: GoogleFonts.gloriaHallelujahTextTheme(
+                Theme.of(context).textTheme,
+              ),
             ),
             home: Splash(),
             routes: <String, WidgetBuilder>{
