@@ -39,6 +39,37 @@ class _LoginState extends State<Login> {
     }
   }
 
+  void errorHandler(context, e) {
+    String message = "An error has occurred. Please try again.";
+
+    switch (e) {
+      case "user-not-found":
+        message = "User not found";
+        break;
+      case "wrong-password":
+        message = "Incorrect password";
+        break;
+    }
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Error"),
+          content: Text(message),
+          actions: <Widget>[
+            FlatButton(
+              child: Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,17 +120,39 @@ class _LoginState extends State<Login> {
                                 emailInputController.clear(),
                                 pwdInputController.clear(),
                               })
-                          .catchError((e) => print(e));
+                          .catchError((e) => errorHandler(context, e.code));
                     }
                   },
                 ),
                 Text("Don't have an account yet?"),
-                FlatButton(
-                  child: Text("Register here!"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/register");
-                  },
-                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: FlatButton(
+                        child: Text("Register here!"),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/register");
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: FlatButton(
+                        child: Text("Continue as guest"),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(
+                                title: "Guest Home Page",
+                                guest: true,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

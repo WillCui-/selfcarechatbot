@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key key, this.title, this.guest = false}) : super(key: key);
   final String title;
+  final bool guest;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -13,7 +14,34 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: <Widget>[
+          if (widget.guest)
+            RaisedButton(
+              child: Text("Login"),
+              color: Theme.of(context).primaryColor,
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/login", (_) => false);
+              },
+            )
+          else
+            RaisedButton(
+              child: Text("Logout"),
+              color: Theme.of(context).primaryColor,
+              textColor: Colors.white,
+              onPressed: () {
+                FirebaseAuth.instance
+                    .signOut()
+                    .then((_) => Navigator.pushNamedAndRemoveUntil(
+                        context, "/login", (_) => false))
+                    .catchError((e) => print(e));
+              },
+            ),
+        ],
+      ),
       body: Container(
         alignment: Alignment.center,
         color: Colors.teal[200],
@@ -32,18 +60,6 @@ class _HomePageState extends State<HomePage> {
                 fontFamily: "Times New Roman",
               ),
             ),
-            RaisedButton(
-              child: Text("Logout"),
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
-              onPressed: () {
-                FirebaseAuth.instance
-                    .signOut()
-                    .then((_) => Navigator.pushNamedAndRemoveUntil(
-                        context, "/login", (_) => false))
-                    .catchError((e) => print(e));
-              },
-            )
           ],
         ),
       ),
