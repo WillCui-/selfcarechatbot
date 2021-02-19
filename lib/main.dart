@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'home.dart';
 import 'register.dart';
 import 'login.dart';
-import 'chatbot-page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
