@@ -29,3 +29,6 @@ doc/api/
 
 # Web Firebase Setup
 web/index.html
+
+# OS related
+.DS_Store

@@ -43,26 +43,28 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
-        alignment: Alignment.center,
-        color: Colors.teal[200],
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image(
-                image: AssetImage('assets/penguin.png'),
-                height: 200,
-                width: 200),
-            Text(
-              "We are in this together!!!",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontFamily: "Times New Roman",
-              ),
-            ),
-          ],
-        ),
+      alignment: Alignment.center,
+      color: Colors.teal[200],
+      child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Image(
+        image: AssetImage('assets/penguin.png'),
+        height: 200,
+        width: 200
       ),
+        OutlinedButton(
+          child: Text('Daily check-in'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return ChatbotPage();
+              }),
+            );
+          },
+        ),
+      ])),
     );
   }
 }
