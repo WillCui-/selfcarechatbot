@@ -9,7 +9,7 @@
 .packages
 .pub-cache/
 .pub/
-/build/
+build/
 
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
@@ -26,3 +26,9 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+# Web Firebase Setup
+web/index.html
+
+# OS related
+.DS_Store
