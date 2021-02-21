@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
           title: Text("Error"),
           content: Text(message),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text("Close"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -97,10 +97,14 @@ class _LoginState extends State<Login> {
                   obscureText: true,
                   validator: pwdValidator,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("Login"),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).primaryColor),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
                   onPressed: () {
                     if (_loginFormKey.currentState.validate()) {
                       FirebaseAuth.instance
@@ -128,7 +132,7 @@ class _LoginState extends State<Login> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: FlatButton(
+                      child: TextButton(
                         child: Text("Register here!"),
                         onPressed: () {
                           Navigator.pushNamed(context, "/register");
@@ -136,7 +140,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     Expanded(
-                      child: FlatButton(
+                      child: TextButton(
                         child: Text("Continue as guest"),
                         onPressed: () {
                           Navigator.pushReplacement(

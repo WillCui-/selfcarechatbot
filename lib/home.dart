@@ -19,20 +19,26 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
         actions: <Widget>[
           if (widget.guest)
-            RaisedButton(
+            ElevatedButton(
               child: Text("Login"),
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).primaryColor),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
                     context, "/login", (_) => false);
               },
             )
           else
-            RaisedButton(
+            ElevatedButton(
               child: Text("Logout"),
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).primaryColor),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
               onPressed: () {
                 FirebaseAuth.instance
                     .signOut()
@@ -53,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage('assets/penguin.png'),
                     height: 200,
                     width: 200),
-                OutlinedButton(
+                ElevatedButton(
                   child: Text('Daily check-in'),
                   onPressed: () {
                     Navigator.push(

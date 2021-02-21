@@ -102,10 +102,14 @@ class _RegisterState extends State<Register> {
                   obscureText: true,
                   validator: pwdValidator,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("Register"),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).primaryColor),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
                   onPressed: () {
                     // If the forms are valid via validators
                     if (_registerFormKey.currentState.validate()) {
@@ -165,7 +169,7 @@ class _RegisterState extends State<Register> {
                               title: Text("Error"),
                               content: Text("Passwords must match"),
                               actions: <Widget>[
-                                FlatButton(
+                                TextButton(
                                   child: Text("Close"),
                                   onPressed: () {
                                     Navigator.of(context).pop();
@@ -180,7 +184,7 @@ class _RegisterState extends State<Register> {
                   },
                 ),
                 Text("Already have an account?"),
-                FlatButton(
+                TextButton(
                   child: Text("Login here"),
                   onPressed: () {
                     Navigator.pop(context);
