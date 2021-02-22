@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:chatbot_test1/widgets/app_bar.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title, this.guest = false}) : super(key: key);
   final String title;
@@ -19,10 +21,11 @@ class _HomePageState extends State<HomePage> {
               new MaterialPageRoute(builder: (context) => Navigation()));
         },
       ),
-      appBar: AppBar(
-          title: Text(
-        "Home Page",
-      )),
+      appBar: appBar(
+        context,
+        widget.title,
+        widget.guest,
+      ),
       body: Container(
           alignment: Alignment.center,
           color: Colors.teal[200],
