@@ -243,7 +243,7 @@ class _TopicPage extends State<TopicPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => PlaceHolderPage(),
                       ),
                     );
                   },
@@ -252,12 +252,12 @@ class _TopicPage extends State<TopicPage> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: SingleChoiceButton(
-                  'Friendship',
+                  'Work',
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => WorkPage(),
                       ),
                     );
                   },
@@ -268,3 +268,210 @@ class _TopicPage extends State<TopicPage> {
         ));
   }
 }
+
+class WorkPage extends StatefulWidget {
+  @override
+  _WorkPage createState() => _WorkPage();
+}
+
+class _WorkPage extends State<WorkPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: MainAppBar(
+          'Work',
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          color: Colors.teal,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(
+                  image: AssetImage('assets/penguin.png'),
+                  height: 200,
+                  width: 200),
+              ScreenTitle('     Is this your thought: Unless I do \n  everything perfectly life is intolerable?\n'),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SingleChoiceButton(
+                  'Yes',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => YesPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SingleChoiceButton(
+                  'No',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlaceHolderPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class YesPage extends StatefulWidget {
+  @override
+  _YesPage createState() => _YesPage();
+}
+
+class _YesPage extends State<YesPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: MainAppBar(
+          "Let's challenge it!",
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          color: Colors.teal,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(
+                  image: AssetImage('assets/penguin.png'),
+                  height: 200,
+                  width: 200),
+              ScreenTitle('What would you like to do?'),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SingleChoiceButton(
+                  'Tell me more about it!',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WritePage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SingleChoiceButton(
+                  'Meditate',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MeditationPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class PlaceHolderPage extends StatefulWidget {
+  @override
+  _PlaceHolderPage createState() => _PlaceHolderPage();
+}
+
+class _PlaceHolderPage extends State<PlaceHolderPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: MainAppBar(
+          "Place Holder",
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          color: Colors.teal,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(
+                  image: AssetImage('assets/penguin.png'),
+                  height: 200,
+                  width: 200),
+              ScreenTitle('To be continued...')
+            ],
+          ),
+        ));
+  }
+}
+
+class WritePage extends StatefulWidget {
+  @override
+  _WritePage createState() => _WritePage();
+}
+
+class _WritePage extends State<WritePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: MainAppBar(
+          "Journal of the Day",
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          color: Colors.teal,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(
+                  image: AssetImage('assets/penguin.png'),
+                  height: 200,
+                  width: 200),
+              ScreenTitle('Write down what you have in mind:\n'),
+              Padding(
+              padding: EdgeInsets.fromLTRB(32.0, 5.0, 32.0, 4.0),
+              child: TextField(
+                
+              style: TextStyle(color: Colors.white),
+                maxLines: 5,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(      
+                   borderSide: BorderSide(color: Colors.white),   
+                  ),  
+                  hintText: '  Today I feel...',
+                  //counterText: '0 characters',
+                  focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                  color:Colors.white
+              )
+              ),
+                  
+                  fillColor: Colors.white)
+                  )),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SingleChoiceButton(
+                  'Done',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlaceHolderPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
