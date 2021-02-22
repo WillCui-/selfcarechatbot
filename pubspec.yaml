@@ -36,6 +36,11 @@ dependencies:
   # https://pub.dev/packages/google_fonts
   google_fonts: ^1.1.2
 
+  # A set of utilities that allow you to easily pass a data Model from a parent Widget down to its descendants.
+  # In addition, it also rebuilds all of the children that use the model when the model is updated.
+  # https://pub.dev/packages/scoped_model
+  scoped_model: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

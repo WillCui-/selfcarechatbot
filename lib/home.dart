@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title, this.guest = false}) : super(key: key);
+  HomePage({Key key, this.title}) : super(key: key);
   final String title;
-  final bool guest;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,10 +20,8 @@ class _HomePageState extends State<HomePage> {
               new MaterialPageRoute(builder: (context) => Navigation()));
         },
       ),
-      appBar: appBar(
-        context,
+      appBar: MainAppBar(
         widget.title,
-        widget.guest,
       ),
       body: Container(
           alignment: Alignment.center,
@@ -56,10 +53,9 @@ class _Navigation extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text(
-        "Navigations",
-      )),
+      appBar: MainAppBar(
+        'Navigations',
+      ),
       body: Container(
         alignment: Alignment.center,
         color: Colors.teal[200],
@@ -124,10 +120,9 @@ class _CheckInPage extends State<CheckInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          "Daily Check-in",
-        )),
+        appBar: MainAppBar(
+          'Daily Check-in',
+        ),
         body: Container(
           alignment: Alignment.center,
           color: Colors.teal[200],
@@ -196,10 +191,9 @@ class _MeditationPage extends State<MeditationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          "Meditation Page",
-        )),
+        appBar: MainAppBar(
+          'Meditation Page',
+        ),
         body: Container(
           alignment: Alignment.center,
           color: Colors.teal[200],
@@ -231,10 +225,9 @@ class _GoodToHear extends State<GoodToHear> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          "Good to hear",
-        )),
+        appBar: MainAppBar(
+          'Good to hear',
+        ),
         body: Container(
           alignment: Alignment.center,
           color: Colors.teal[200],
@@ -266,10 +259,9 @@ class _TopicPage extends State<TopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          "Choose an area:",
-        )),
+        appBar: MainAppBar(
+          'Choose an area:',
+        ),
         body: Container(
           alignment: Alignment.center,
           color: Colors.teal[200],
