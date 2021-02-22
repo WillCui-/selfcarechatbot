@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:chatbot_test1/splash.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'home.dart';
-import 'register.dart';
-import 'login.dart';
-import 'models/user.dart';
+
+import 'package:chatbot_test1/models/user.dart';
+import 'package:chatbot_test1/splash.dart';
+import 'package:chatbot_test1/home.dart';
+import 'package:chatbot_test1/register.dart';
+import 'package:chatbot_test1/login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
                 child: MaterialApp(
                   theme: ThemeData(
                     primarySwatch: Colors.teal,
+                    accentColor: Colors.white,
                     textTheme: GoogleFonts.gloriaHallelujahTextTheme(
                       Theme.of(context).textTheme,
                     ),

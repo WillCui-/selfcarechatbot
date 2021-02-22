@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:chatbot_test1/widgets/app_bar.dart';
+import 'package:chatbot_test1/widgets/single_choice_button.dart';
+import 'package:chatbot_test1/widgets/screen_title.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Colors.teal,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -33,12 +35,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage('assets/penguin.png'),
                     height: 200,
                     width: 200),
-                Text("We are in this together!",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: "Times New Roman",
-                    )),
+                ScreenTitle('We are in this together!'),
               ])),
     );
   }
@@ -58,7 +55,7 @@ class _Navigation extends State<Navigation> {
       ),
       body: Container(
         alignment: Alignment.center,
-        color: Colors.teal[200],
+        color: Colors.teal,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -68,8 +65,8 @@ class _Navigation extends State<Navigation> {
                 width: 200),
             Padding(
               padding: EdgeInsets.all(10.0),
-              child: TextButton(
-                child: Text("Daily Check-in"),
+              child: SingleChoiceButton(
+                'Daily Check-in',
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -78,17 +75,12 @@ class _Navigation extends State<Navigation> {
                     ),
                   );
                 },
-                style: TextButton.styleFrom(
-                    primary: Colors.green,
-                    backgroundColor: Colors.amber,
-                    textStyle:
-                        TextStyle(fontSize: 24, fontStyle: FontStyle.italic)),
               ),
             ),
             Padding(
               padding: EdgeInsets.all(10.0),
-              child: TextButton(
-                child: Text("Meditation"),
+              child: SingleChoiceButton(
+                'Meditation',
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -97,11 +89,6 @@ class _Navigation extends State<Navigation> {
                     ),
                   );
                 },
-                style: TextButton.styleFrom(
-                    primary: Colors.green,
-                    backgroundColor: Colors.amber,
-                    textStyle:
-                        TextStyle(fontSize: 24, fontStyle: FontStyle.italic)),
               ),
             ),
           ],
@@ -125,7 +112,7 @@ class _CheckInPage extends State<CheckInPage> {
         ),
         body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Colors.teal,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -133,16 +120,11 @@ class _CheckInPage extends State<CheckInPage> {
                     image: AssetImage('assets/penguin.png'),
                     height: 200,
                     width: 200),
-                Text("How are you today?",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: "Times New Roman",
-                    )),
+                ScreenTitle('How are you today?'),
                 Padding(
                   padding: EdgeInsets.all(10.0),
-                  child: TextButton(
-                    child: Text("Good :-)"),
+                  child: SingleChoiceButton(
+                    'Good :-)',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -151,17 +133,12 @@ class _CheckInPage extends State<CheckInPage> {
                         ),
                       );
                     },
-                    style: TextButton.styleFrom(
-                        primary: Colors.green,
-                        backgroundColor: Colors.amber,
-                        textStyle: TextStyle(
-                            fontSize: 24, fontStyle: FontStyle.italic)),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(10.0),
-                  child: TextButton(
-                    child: Text("Bad :-)"),
+                  child: SingleChoiceButton(
+                    'Bad :-)',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -170,11 +147,6 @@ class _CheckInPage extends State<CheckInPage> {
                         ),
                       );
                     },
-                    style: TextButton.styleFrom(
-                        primary: Colors.green,
-                        backgroundColor: Colors.amber,
-                        textStyle: TextStyle(
-                            fontSize: 24, fontStyle: FontStyle.italic)),
                   ),
                 ),
               ]),
@@ -196,7 +168,7 @@ class _MeditationPage extends State<MeditationPage> {
         ),
         body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Colors.teal,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -204,12 +176,7 @@ class _MeditationPage extends State<MeditationPage> {
                   image: AssetImage('assets/penguin.png'),
                   height: 200,
                   width: 200),
-              Text("To be implemented!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: "Times New Roman",
-                  ))
+              ScreenTitle('To be implemented!'),
             ],
           ),
         ));
@@ -230,7 +197,7 @@ class _GoodToHear extends State<GoodToHear> {
         ),
         body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Colors.teal,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -238,12 +205,7 @@ class _GoodToHear extends State<GoodToHear> {
                   image: AssetImage('assets/penguin.png'),
                   height: 200,
                   width: 200),
-              Text("I am happy to hear that!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: "Times New Roman",
-                  ))
+              ScreenTitle('I am happy to hear that!'),
             ],
           ),
         ));
@@ -264,7 +226,7 @@ class _TopicPage extends State<TopicPage> {
         ),
         body: Container(
           alignment: Alignment.center,
-          color: Colors.teal[200],
+          color: Colors.teal,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -272,15 +234,11 @@ class _TopicPage extends State<TopicPage> {
                   image: AssetImage('assets/penguin.png'),
                   height: 200,
                   width: 200),
-              Text("Which areas of your life are impacted?",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: "Times New Roman",
-                  )),
+              ScreenTitle('Which areas of your life are impacted?'),
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: TextButton(
+                child: SingleChoiceButton(
+                  'Family',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -289,17 +247,12 @@ class _TopicPage extends State<TopicPage> {
                       ),
                     );
                   },
-                  child: Text("Family"),
-                  style: TextButton.styleFrom(
-                      primary: Colors.green,
-                      backgroundColor: Colors.amber,
-                      textStyle:
-                          TextStyle(fontSize: 24, fontStyle: FontStyle.italic)),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: TextButton(
+                child: SingleChoiceButton(
+                  'Friendship',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -308,12 +261,6 @@ class _TopicPage extends State<TopicPage> {
                       ),
                     );
                   },
-                  child: Text("Friendship"),
-                  style: TextButton.styleFrom(
-                      primary: Colors.green,
-                      backgroundColor: Colors.amber,
-                      textStyle:
-                          TextStyle(fontSize: 24, fontStyle: FontStyle.italic)),
                 ),
               ),
             ],
