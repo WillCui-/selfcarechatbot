@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:scoped_model/scoped_model.dart';
 
+import 'package:chatbot_test1/models/user.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {
@@ -72,6 +74,8 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final userModel = ScopedModel.of<UserModel>(context, rebuildOnChange: true);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
@@ -112,6 +116,7 @@ class _LoginState extends State<Login> {
                               email: emailInputController.text,
                               password: pwdInputController.text)
                           .then((user) => {
+                                userModel.isGuest = false,
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
@@ -143,12 +148,12 @@ class _LoginState extends State<Login> {
                       child: TextButton(
                         child: Text("Continue as guest"),
                         onPressed: () {
+                          userModel.isGuest = true;
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePage(
                                 title: "Guest Home Page",
-                                guest: true,
                               ),
                             ),
                           );
