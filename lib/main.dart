@@ -29,35 +29,37 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: _initialization,
-        builder: (context, snapshot) {
-          // Check for errors
-          if (snapshot.hasError) {
-            // TODO: There's an error
-          }
+      future: _initialization,
+      builder: (context, snapshot) {
+        // Check for errors
+        if (snapshot.hasError) {
+          // TODO: There's an error
+        }
 
-          if (snapshot.connectionState == ConnectionState.done) {
-            return ScopedModel<UserModel>(
-                model: userModel,
-                child: MaterialApp(
-                  theme: ThemeData(
-                    primarySwatch: Colors.teal,
-                    accentColor: Colors.white,
-                    textTheme: GoogleFonts.gloriaHallelujahTextTheme(
-                      Theme.of(context).textTheme,
+        if (snapshot.connectionState == ConnectionState.done) {
+          return ScopedModel<UserModel>(
+            model: userModel,
+            child: MaterialApp(
+              theme: ThemeData(
+                primarySwatch: Colors.teal,
+                accentColor: Colors.white,
+                textTheme: GoogleFonts.gloriaHallelujahTextTheme(
+                  Theme.of(context).textTheme,
+                ),
+              ),
+              home: Splash(),
+              routes: <String, WidgetBuilder>{
+                '/splash': (BuildContext context) => Splash(),
+                '/register': (BuildContext context) => Register(),
+                '/login': (BuildContext context) => Login(),
+                '/home': (BuildContext context) => HomePage(
+                    // title: "Home Page",
                     ),
-                  ),
-                  home: Splash(),
-                  routes: <String, WidgetBuilder>{
-                    '/splash': (BuildContext context) => Splash(),
-                    '/register': (BuildContext context) => Register(),
-                    '/login': (BuildContext context) => Login(),
-                    '/home': (BuildContext context) => HomePage(
-                        // title: "Home Page",
-                        ),
-                  },
-                ));
-          }
-        });
+              },
+            ),
+          );
+        }
+      },
+    );
   }
 }

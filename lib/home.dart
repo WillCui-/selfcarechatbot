@@ -26,17 +26,19 @@ class _HomePageState extends State<HomePage> {
         widget.title,
       ),
       body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                    image: AssetImage('assets/penguin.png'),
-                    height: 200,
-                    width: 200),
-                ScreenTitle('We are in this together!'),
-              ])),
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('We are in this together!'),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -107,50 +109,52 @@ class _CheckInPage extends State<CheckInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          'Daily Check-in',
+      appBar: MainAppBar(
+        'Daily Check-in',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('How are you today?'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Good :-)',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GoodToHear(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Bad :-)',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TopicPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                    image: AssetImage('assets/penguin.png'),
-                    height: 200,
-                    width: 200),
-                ScreenTitle('How are you today?'),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: SingleChoiceButton(
-                    'Good :-)',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GoodToHear(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: SingleChoiceButton(
-                    'Bad :-)',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TopicPage(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ]),
-        ));
+      ),
+    );
   }
 }
 
@@ -163,23 +167,24 @@ class _MeditationPage extends State<MeditationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          'Meditation Page',
+      appBar: MainAppBar(
+        'Meditation Page',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('To be implemented!'),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('To be implemented!'),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -192,23 +197,24 @@ class _GoodToHear extends State<GoodToHear> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          'Good to hear',
+      appBar: MainAppBar(
+        'Good to hear',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('I am happy to hear that!'),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('I am happy to hear that!'),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -221,51 +227,52 @@ class _TopicPage extends State<TopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          'Choose an area:',
+      appBar: MainAppBar(
+        'Choose an area:',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('Which areas of your life are impacted?'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Family',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlaceHolderPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Work',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WorkPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('Which areas of your life are impacted?'),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Family',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PlaceHolderPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Work',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => WorkPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -278,51 +285,53 @@ class _WorkPage extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          'Work',
+      appBar: MainAppBar(
+        'Work',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle(
+                '     Is this your thought: Unless I do \n  everything perfectly life is intolerable?\n'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Yes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => YesPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'No',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlaceHolderPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('     Is this your thought: Unless I do \n  everything perfectly life is intolerable?\n'),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Yes',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => YesPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'No',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PlaceHolderPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -335,51 +344,52 @@ class _YesPage extends State<YesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          "Let's challenge it!",
+      appBar: MainAppBar(
+        "Let's challenge it!",
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('What would you like to do?'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Tell me more about it!',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WritePage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Meditate',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('What would you like to do?'),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Tell me more about it!',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => WritePage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Meditate',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MeditationPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -392,23 +402,24 @@ class _PlaceHolderPage extends State<PlaceHolderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          "Place Holder",
+      appBar: MainAppBar(
+        "Place Holder",
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('To be continued...')
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('To be continued...')
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -421,57 +432,51 @@ class _WritePage extends State<WritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(
-          "Journal of the Day",
+      appBar: MainAppBar(
+        "Journal of the Day",
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('Write down what you have in mind:\n'),
+            Padding(
+                padding: EdgeInsets.fromLTRB(32.0, 5.0, 32.0, 4.0),
+                child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    maxLines: 5,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        hintText: '  Today I feel...',
+                        //counterText: '0 characters',
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white)),
+                        fillColor: Colors.white))),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Done',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlaceHolderPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          alignment: Alignment.center,
-          color: Colors.teal,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                  image: AssetImage('assets/penguin.png'),
-                  height: 200,
-                  width: 200),
-              ScreenTitle('Write down what you have in mind:\n'),
-              Padding(
-              padding: EdgeInsets.fromLTRB(32.0, 5.0, 32.0, 4.0),
-              child: TextField(
-                
-              style: TextStyle(color: Colors.white),
-                maxLines: 5,
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(      
-                   borderSide: BorderSide(color: Colors.white),   
-                  ),  
-                  hintText: '  Today I feel...',
-                  //counterText: '0 characters',
-                  focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                  color:Colors.white
-              )
-              ),
-                  
-                  fillColor: Colors.white)
-                  )),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SingleChoiceButton(
-                  'Done',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PlaceHolderPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
-

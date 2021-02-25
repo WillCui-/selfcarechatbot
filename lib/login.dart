@@ -115,21 +115,26 @@ class _LoginState extends State<Login> {
                           .signInWithEmailAndPassword(
                               email: emailInputController.text,
                               password: pwdInputController.text)
-                          .then((user) => {
-                                userModel.isGuest = false,
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => HomePage(
-                                      title: user.user.displayName +
-                                          "\'s Home Page",
-                                    ),
+                          .then(
+                            (user) => {
+                              userModel.isGuest = false,
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(
+                                    title:
+                                        user.user.displayName + "\'s Home Page",
                                   ),
                                 ),
-                                emailInputController.clear(),
-                                pwdInputController.clear(),
-                              })
-                          .catchError((e) => errorHandler(context, e.code));
+                              ),
+                              emailInputController.clear(),
+                              pwdInputController.clear(),
+                            },
+                          )
+                          .catchError((e) {
+                        errorHandler(context, e.code);
+                        return null;
+                      });
                     }
                   },
                 ),

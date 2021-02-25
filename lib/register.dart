@@ -155,12 +155,21 @@ class _RegisterState extends State<Register> {
                                                     confirmPwdInputController
                                                         .clear(),
                                                   })
-                                              .catchError((e) => print(e)),
+                                              .catchError((e) {
+                                            print(e);
+                                            return null;
+                                          }),
                                         },
                                       )
-                                      .catchError((e) => print(e)),
+                                      .catchError((e) {
+                                    print(e);
+                                    return null;
+                                  }),
                                 })
-                            .catchError((e) => print(e));
+                            .catchError((e) {
+                          print(e);
+                          return null;
+                        });
                       } else {
                         showDialog(
                           context: context,
