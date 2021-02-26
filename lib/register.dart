@@ -1,6 +1,7 @@
 import 'package:chatbot_test1/home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -46,6 +47,70 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> login() {
+      return FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: emailInputController.text,
+            password: pwdInputController.text,
+          )
+          .then(
+            (user) => {
+              user.user
+                  .updateProfile(
+                    displayName: firstNameInputController.text +
+                        " " +
+                        lastNameInputController.text,
+                  )
+                  .then(
+                    (_) => {
+                      print("Storing"),
+                      FirebaseFirestore.instance
+                          .collection("users")
+                          .doc(user.user.uid)
+                          .set(
+                            {
+                              "uid": user.user.uid,
+                              "fname": firstNameInputController.text,
+                              "lname": lastNameInputController.text,
+                              "email": emailInputController.text,
+                            },
+                          )
+                          .then(
+                            (_) => {
+                              print("Done"),
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(
+                                    title: firstNameInputController.text +
+                                        " " +
+                                        lastNameInputController.text +
+                                        "\'s Home Page",
+                                  ),
+                                ),
+                                (_) => false,
+                              )
+                                  .then(
+                                    (_) => {
+                                      firstNameInputController.clear(),
+                                      lastNameInputController.clear(),
+                                      emailInputController.clear(),
+                                      pwdInputController.clear(),
+                                      confirmPwdInputController.clear(),
+                                    },
+                                  )
+                                  .catchError(print),
+                            },
+                          )
+                          .catchError(print),
+                    },
+                  )
+                  .catchError(print),
+            },
+          )
+          .catchError(print);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Register"),
@@ -116,60 +181,7 @@ class _RegisterState extends State<Register> {
                       // If the password is the same as confirm password
                       if (pwdInputController.text ==
                           confirmPwdInputController.text) {
-                        FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: emailInputController.text,
-                                password: pwdInputController.text)
-                            .then((user) => {
-                                  user.user
-                                      .updateProfile(
-                                        displayName:
-                                            firstNameInputController.text +
-                                                " " +
-                                                lastNameInputController.text,
-                                      )
-                                      .then(
-                                        (_) => {
-                                          Navigator.pushAndRemoveUntil(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => HomePage(
-                                                title: firstNameInputController
-                                                        .text +
-                                                    " " +
-                                                    lastNameInputController
-                                                        .text +
-                                                    "\'s Home Page",
-                                              ),
-                                            ),
-                                            (_) => false,
-                                          )
-                                              .then((_) => {
-                                                    firstNameInputController
-                                                        .clear(),
-                                                    lastNameInputController
-                                                        .clear(),
-                                                    emailInputController
-                                                        .clear(),
-                                                    pwdInputController.clear(),
-                                                    confirmPwdInputController
-                                                        .clear(),
-                                                  })
-                                              .catchError((e) {
-                                            print(e);
-                                            return null;
-                                          }),
-                                        },
-                                      )
-                                      .catchError((e) {
-                                    print(e);
-                                    return null;
-                                  }),
-                                })
-                            .catchError((e) {
-                          print(e);
-                          return null;
-                        });
+                        login();
                       } else {
                         showDialog(
                           context: context,
