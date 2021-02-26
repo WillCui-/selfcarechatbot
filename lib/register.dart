@@ -63,7 +63,6 @@ class _RegisterState extends State<Register> {
                   )
                   .then(
                     (_) => {
-                      print("Storing"),
                       FirebaseFirestore.instance
                           .collection("users")
                           .doc(user.user.uid)
@@ -77,7 +76,6 @@ class _RegisterState extends State<Register> {
                           )
                           .then(
                             (_) => {
-                              print("Done"),
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
