@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -117,6 +118,22 @@ class _LoginState extends State<Login> {
                               password: pwdInputController.text)
                           .then(
                             (user) => {
+                              FirebaseFirestore.instance
+                                  .collection("users")
+                                  .get()
+                                  .then((querySnapshot) {
+                                var loginTimes =
+                                    querySnapshot.docs.firstWhere((e) {
+                                  return e.data()["uid"] == user.user.uid;
+                                }).data()["loginTimes"];
+                                loginTimes.add(DateTime.now());
+                                FirebaseFirestore.instance
+                                    .collection("users")
+                                    .doc(user.user.uid)
+                                    .update({
+                                  "loginTimes": loginTimes,
+                                }).catchError(print);
+                              }).catchError(print),
                               userModel.isGuest = false,
                               Navigator.pushReplacement(
                                 context,

@@ -72,6 +72,8 @@ class _RegisterState extends State<Register> {
                               "fname": firstNameInputController.text,
                               "lname": lastNameInputController.text,
                               "email": emailInputController.text,
+                              "creationDate": DateTime.now(),
+                              "loginTimes": [DateTime.now()],
                             },
                           )
                           .then(
