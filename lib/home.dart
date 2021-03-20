@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -203,7 +205,7 @@ class _MeditationPage extends State<MeditationPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TopicPage(), // replace with Sean's Meditation page
+                      builder: (context) => MeditationVid1(), // replace with Sean's Meditation page
                     ),
                   );
                 },
@@ -223,6 +225,9 @@ class MeditationIntroPage2 extends StatefulWidget {
 }
 
 class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
+  void _launchURL(String _url) async =>
+    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -246,6 +251,21 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
             '\n                           - Tara Brach\n'),
              Padding(
               padding: EdgeInsets.all(10.0),
+              child: MaterialButton(
+                onPressed: () {
+                  _launchURL('https://www.nytimes.com/guides/well/how-to-meditate');
+                },
+                child: Text(
+                  "Read More about it",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  )
+                ),
+                shape: Border.all(color: Colors.white,width: 0.5,))
+              ),
+             Padding(
+              padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
                 'Start',
                 onPressed: () {
@@ -257,7 +277,7 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -265,6 +285,43 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
   }
 }
 
+class MeditationVid1 extends StatefulWidget {
+  @override
+  _MeditationVid1 createState() => _MeditationVid1();
+}
+
+class _MeditationVid1 extends State<MeditationVid1> {
+  @override
+  Widget build(BuildContext context) {
+    String videoId;
+    videoId = YoutubePlayer.convertUrlToId("https://m.youtube.com/watch?v=ZToicYcHIOU");
+
+    YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: videoId,
+    flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+    ),
+);
+
+    return Scaffold(
+      appBar: MainAppBar(
+        'Welcome to a 10-min Meditation!',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          child : YoutubePlayer(
+    controller: _controller,
+    liveUIColor: Colors.amber,
+),
+        )
+      ),
+    );
+  }
+}
 
 class GoodToHear extends StatefulWidget {
   @override
