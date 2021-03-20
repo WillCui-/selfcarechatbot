@@ -87,7 +87,7 @@ class _Navigation extends State<Navigation> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MeditationPage(),
+                      builder: (context) => MeditationIntroPage3(),
                     ),
                   );
                 },
@@ -181,7 +181,7 @@ class _MeditationPage extends State<MeditationPage> {
                 height: 200,
                 width: 200),
             ScreenTitle('Meditation is a way to train the mind\n'),
-             Padding(
+            Padding(
               padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
                 'Learn More',
@@ -195,7 +195,7 @@ class _MeditationPage extends State<MeditationPage> {
                 },
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
                 'Start',
@@ -203,7 +203,7 @@ class _MeditationPage extends State<MeditationPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TopicPage(), // replace with Sean's Meditation page
+                      builder: (context) => MeditationDuration(),
                     ),
                   );
                 },
@@ -215,7 +215,6 @@ class _MeditationPage extends State<MeditationPage> {
     );
   }
 }
-
 
 class MeditationIntroPage2 extends StatefulWidget {
   @override
@@ -240,11 +239,11 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
                 height: 200,
                 width: 200),
             ScreenTitle('    “Mindfulness is your awareness of \n'
-            '  what’s going on in the present moment\n'
-            '  without any judgment.\n'  
-            '\n  Meditation is the training of attention \n  which cultivates that mindfulness.”' 
-            '\n                           - Tara Brach\n'),
-             Padding(
+                '  what’s going on in the present moment\n'
+                '  without any judgment.\n'
+                '\n  Meditation is the training of attention \n  which cultivates that mindfulness.”'
+                '\n                           - Tara Brach\n'),
+            Padding(
               padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
                 'Start',
@@ -252,7 +251,7 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => TopicPage(), // replace with Sean's Meditation page
+                      builder: (context) => MeditationDuration(),
                     ),
                   );
                 },
@@ -265,6 +264,124 @@ class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
   }
 }
 
+class MeditationIntroPage3 extends StatefulWidget {
+  @override
+  _MeditationIntroPage3 createState() => _MeditationIntroPage3();
+}
+
+class _MeditationIntroPage3 extends State<MeditationIntroPage3> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'Meditation History',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('Have you meditated before?'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Yes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationDuration(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'No',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MeditationDuration extends StatefulWidget {
+  @override
+  _MeditationDuration createState() => _MeditationDuration();
+}
+
+class _MeditationDuration extends State<MeditationDuration> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'Meditation Duration',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('How long would you like to \n'
+                'meditate today\n'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                '10 minutes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          PlaceHolderPage(), //To be replaced with video
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                '20 minutes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          PlaceHolderPage(), //To be replaced with video
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class GoodToHear extends StatefulWidget {
   @override
