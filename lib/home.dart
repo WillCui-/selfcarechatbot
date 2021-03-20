@@ -292,7 +292,8 @@ class MeditationVid1 extends StatefulWidget {
 class _MeditationVid1 extends State<MeditationVid1> {
   @override
   Widget build(BuildContext context) {
-    String videoId;
+    String videoId;                 // this could be replaced with an if statement
+                                    // and just change the link and the title
     videoId = YoutubePlayer.convertUrlToId("https://m.youtube.com/watch?v=ZToicYcHIOU");
 
     YoutubePlayerController _controller = YoutubePlayerController(
@@ -330,7 +331,7 @@ class _MeditationVid2 extends State<MeditationVid2> {
   @override
   Widget build(BuildContext context) {
     String videoId;
-    videoId = YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=O-6f5wQXSu8");
+    videoId = YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=-2zdUXve6fQ&t=104s");
 
     YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: videoId,
