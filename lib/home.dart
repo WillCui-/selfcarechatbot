@@ -180,13 +180,91 @@ class _MeditationPage extends State<MeditationPage> {
                 image: AssetImage('assets/penguin.png'),
                 height: 200,
                 width: 200),
-            ScreenTitle('To be implemented!'),
+            ScreenTitle('Meditation is a way to train the mind\n'),
+             Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Learn More',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationIntroPage2(),
+                    ),
+                  );
+                },
+              ),
+            ),
+             Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Start',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TopicPage(), // replace with Sean's Meditation page
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
+
+
+class MeditationIntroPage2 extends StatefulWidget {
+  @override
+  _MeditationIntroPage2 createState() => _MeditationIntroPage2();
+}
+
+class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'More about Meditation',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('    “Mindfulness is your awareness of \n'
+            '  what’s going on in the present moment\n'
+            '  without any judgment.\n'  
+            '\n  Meditation is the training of attention \n  which cultivates that mindfulness.”' 
+            '\n                           - Tara Brach\n'),
+             Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Start',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TopicPage(), // replace with Sean's Meditation page
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class GoodToHear extends StatefulWidget {
   @override
