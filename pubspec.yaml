@@ -27,6 +27,11 @@ dependencies:
   firebase_auth: "^0.20.0+1"
   cloud_firestore: "^0.16.0+1"
 
+  # This packages allows you to embed Youtube Videos into Flutter   
+  youtube_player_flutter: ^7.0.0+7
+
+  # This package allows you to fetch an url
+  url_launcher: ^6.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

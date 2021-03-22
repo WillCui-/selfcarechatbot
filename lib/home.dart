@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -87,7 +89,7 @@ class _Navigation extends State<Navigation> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MeditationPage(),
+                      builder: (context) => MeditationIntroPage3(),
                     ),
                   );
                 },
@@ -180,7 +182,295 @@ class _MeditationPage extends State<MeditationPage> {
                 image: AssetImage('assets/penguin.png'),
                 height: 200,
                 width: 200),
-            ScreenTitle('To be implemented!'),
+            ScreenTitle('Meditation is a way to train the mind\n'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Learn More',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationIntroPage2(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Start',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationDuration(),
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MeditationIntroPage2 extends StatefulWidget {
+  @override
+  _MeditationIntroPage2 createState() => _MeditationIntroPage2();
+}
+
+class _MeditationIntroPage2 extends State<MeditationIntroPage2> {
+  void _launchURL(String _url) async =>
+    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'More about Meditation',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('    “Mindfulness is your awareness of \n'
+                '  what’s going on in the present moment\n'
+                '  without any judgment.\n'
+                '\n  Meditation is the training of attention \n  which cultivates that mindfulness.”'
+                '\n                           - Tara Brach\n'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: MaterialButton(
+                onPressed: () {
+                  _launchURL('https://www.nytimes.com/guides/well/how-to-meditate');
+                },
+                child: Text(
+                  "Read More about it",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  )
+                ),
+                shape: Border.all(color: Colors.white,width: 0.5,))
+              ),
+             Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Start',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationDuration(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MeditationVid1 extends StatefulWidget {
+  @override
+  _MeditationVid1 createState() => _MeditationVid1();
+}
+
+class _MeditationVid1 extends State<MeditationVid1> {
+  @override
+  Widget build(BuildContext context) {
+    String videoId;                 // this could be replaced with an if statement
+                                    // and just change the link and the title
+    videoId = YoutubePlayer.convertUrlToId("https://m.youtube.com/watch?v=ZToicYcHIOU");
+
+    YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: videoId,
+    flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+           ),
+);
+return Scaffold(
+      appBar: MainAppBar(
+        'Welcome to a 10-min Meditation!',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          child : YoutubePlayer(
+    controller: _controller,
+    liveUIColor: Colors.amber,
+    ),
+        )
+      ),
+    );
+  }
+}
+
+class MeditationVid2 extends StatefulWidget {
+  @override
+  _MeditationVid2 createState() => _MeditationVid2();
+}
+
+class _MeditationVid2 extends State<MeditationVid2> {
+  @override
+  Widget build(BuildContext context) {
+    String videoId;
+    videoId = YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=-2zdUXve6fQ&t=104s");
+
+    YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: videoId,
+    flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+           ),
+);
+return Scaffold(
+      appBar: MainAppBar(
+        'Welcome to a 20-min Meditation!',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          child : YoutubePlayer(
+    controller: _controller,
+    liveUIColor: Colors.amber,
+    ),
+        )
+      ),
+    );
+  }
+}
+
+class MeditationIntroPage3 extends StatefulWidget {
+  @override
+  _MeditationIntroPage3 createState() => _MeditationIntroPage3();
+}
+
+class _MeditationIntroPage3 extends State<MeditationIntroPage3> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'Meditation History',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('Have you meditated before?'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'Yes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationDuration(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                'No',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeditationPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MeditationDuration extends StatefulWidget {
+  @override
+  _MeditationDuration createState() => _MeditationDuration();
+}
+
+class _MeditationDuration extends State<MeditationDuration> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        'Meditation Duration',
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        color: Colors.teal,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+                image: AssetImage('assets/penguin.png'),
+                height: 200,
+                width: 200),
+            ScreenTitle('How long would you like to \n'
+                'meditate today?\n'),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                '10 minutes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MeditationVid1(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: SingleChoiceButton(
+                '20 minutes',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MeditationVid2(),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
