@@ -70,7 +70,7 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
                   .signOut()
                   .then((_) => Navigator.pushNamedAndRemoveUntil(
                       context, "/login", (_) => false))
-                  .catchError((e) => print(e));
+                  .catchError(print);
             },
           ),
       ],

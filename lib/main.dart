@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:chatbot_test1/models/user.dart';
@@ -18,6 +19,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final FirebaseAnalytics analytics = FirebaseAnalytics();
 
   final UserModel userModel;
 

@@ -1,4 +1,5 @@
 import 'package:chatbot_test1/home.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,6 +11,8 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
+  final FirebaseAnalytics analytics = FirebaseAnalytics();
+
   TextEditingController firstNameInputController;
   TextEditingController lastNameInputController;
   TextEditingController emailInputController;
@@ -55,6 +58,7 @@ class _RegisterState extends State<Register> {
           )
           .then(
             (user) => {
+              analytics.logSignUp(signUpMethod: 'app'),
               user.user
                   .updateProfile(
                     displayName: firstNameInputController.text +
