@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,6 +42,7 @@ class _AppBarTextButton extends StatelessWidget {
 
 class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
+  final FirebaseAnalytics analytics = FirebaseAnalytics();
 
   MainAppBar(this.title);
 
@@ -66,6 +68,7 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
           TextButton(
             child: _AppBarTextButton('Logout'),
             onPressed: () {
+              analytics.logEvent(name: 'logout');
               FirebaseAuth.instance
                   .signOut()
                   .then((_) => Navigator.pushNamedAndRemoveUntil(

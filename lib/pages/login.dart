@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:chatbot_test1/models/user.dart';
-import 'home.dart';
+import '../home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -78,7 +78,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final userModel = ScopedModel.of<UserModel>(context, rebuildOnChange: true);
-
 
     return Scaffold(
       appBar: AppBar(

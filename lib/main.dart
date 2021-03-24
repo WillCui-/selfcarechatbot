@@ -7,8 +7,8 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:chatbot_test1/models/user.dart';
 import 'package:chatbot_test1/splash.dart';
 import 'package:chatbot_test1/home.dart';
-import 'package:chatbot_test1/register.dart';
-import 'package:chatbot_test1/login.dart';
+import 'package:chatbot_test1/pages/register.dart';
+import 'package:chatbot_test1/pages/login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,6 +61,8 @@ class MyApp extends StatelessWidget {
             ),
           );
         }
+
+        // TODO: Return something while it is loading
       },
     );
   }
