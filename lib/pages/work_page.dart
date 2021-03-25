@@ -1,6 +1,3 @@
-import 'package:chatbot_test1/home.dart';
-import 'package:chatbot_test1/pages/placeholder.dart';
-import 'package:chatbot_test1/pages/yes_page.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -35,12 +32,7 @@ class _WorkPage extends State<WorkPage> {
               child: SingleChoiceButton(
                 'Yes',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => YesPage(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/yespage');
                 },
               ),
             ),
@@ -49,12 +41,7 @@ class _WorkPage extends State<WorkPage> {
               child: SingleChoiceButton(
                 'No',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PlaceHolder(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/placeholder');
                 },
               ),
             ),

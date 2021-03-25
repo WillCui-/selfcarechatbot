@@ -1,5 +1,3 @@
-import 'package:chatbot_test1/pages/meditation_duration.dart';
-import 'package:chatbot_test1/pages/meditation_info.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -33,12 +31,7 @@ class _Meditation extends State<Meditation> {
               child: SingleChoiceButton(
                 'Yes',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MeditationDuration(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/meditationduration');
                 },
               ),
             ),
@@ -47,12 +40,7 @@ class _Meditation extends State<Meditation> {
               child: SingleChoiceButton(
                 'No',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MeditationInfo(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/meditationinfo/1');
                 },
               ),
             ),

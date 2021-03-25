@@ -1,4 +1,3 @@
-import 'package:chatbot_test1/pages/placeholder.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -46,12 +45,7 @@ class _WritePage extends State<WritePage> {
               child: SingleChoiceButton(
                 'Done',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PlaceHolder(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/placeholder');
                 },
               ),
             ),

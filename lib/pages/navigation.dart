@@ -1,5 +1,3 @@
-import 'package:chatbot_test1/pages/check_in.dart';
-import 'package:chatbot_test1/pages/meditation.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
@@ -31,12 +29,7 @@ class _Navigation extends State<Navigation> {
               child: SingleChoiceButton(
                 'Daily Check-in',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CheckIn(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/checkin');
                 },
               ),
             ),
@@ -45,12 +38,7 @@ class _Navigation extends State<Navigation> {
               child: SingleChoiceButton(
                 'Meditation',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Meditation(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/meditation');
                 },
               ),
             ),

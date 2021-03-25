@@ -1,4 +1,3 @@
-import 'package:chatbot_test1/pages/navigation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chatbot_test1/widgets/app_bar.dart';
@@ -18,11 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-              context,
-              new MaterialPageRoute(
-                builder: (context) => Navigation(),
-              ));
+          Navigator.pushNamed(context, "/navigation");
         },
       ),
       appBar: MainAppBar(

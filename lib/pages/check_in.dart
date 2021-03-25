@@ -1,4 +1,3 @@
-import 'package:chatbot_test1/pages/good_to_hear.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
@@ -32,12 +31,7 @@ class _CheckIn extends State<CheckIn> {
               child: SingleChoiceButton(
                 'Good :-)',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GoodToHear(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/goodtohear');
                 },
               ),
             ),
@@ -46,12 +40,7 @@ class _CheckIn extends State<CheckIn> {
               child: SingleChoiceButton(
                 'Bad :-)',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => TopicPage(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/topic');
                 },
               ),
             ),

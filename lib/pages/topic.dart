@@ -1,19 +1,21 @@
+import 'package:chatbot_test1/pages/placeholder.dart';
+import 'package:chatbot_test1/pages/work_page.dart';
 import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class YesPage extends StatefulWidget {
+class Topic extends StatefulWidget {
   @override
-  _YesPage createState() => _YesPage();
+  _Topic createState() => _Topic();
 }
 
-class _YesPage extends State<YesPage> {
+class _Topic extends State<Topic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(
-        "Let's challenge it!",
+        'Choose an area:',
       ),
       body: Container(
         alignment: Alignment.center,
@@ -25,22 +27,32 @@ class _YesPage extends State<YesPage> {
                 image: AssetImage('assets/penguin.png'),
                 height: 200,
                 width: 200),
-            ScreenTitle('What would you like to do?'),
+            ScreenTitle('Which areas of your life are impacted?'),
             Padding(
               padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
-                'Tell me more about it!',
+                'Family',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/writepage');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlaceHolder(),
+                    ),
+                  );
                 },
               ),
             ),
             Padding(
               padding: EdgeInsets.all(10.0),
               child: SingleChoiceButton(
-                'Meditate',
+                'Work',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/meditationinfo/1');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WorkPage(),
+                    ),
+                  );
                 },
               ),
             ),
