@@ -7,6 +7,7 @@ import 'package:chatbot_test1/pages/meditation_info_more.dart';
 import 'package:chatbot_test1/pages/meditation_vid_1.dart';
 import 'package:chatbot_test1/pages/meditation_vid_2.dart';
 import 'package:chatbot_test1/pages/navigation.dart';
+import 'package:chatbot_test1/pages/placeholder.dart';
 import 'package:chatbot_test1/pages/topic.dart';
 import 'package:chatbot_test1/pages/work_page.dart';
 import 'package:chatbot_test1/pages/write_page.dart';
@@ -82,7 +83,7 @@ class MyApp extends StatelessWidget {
                 '/workpage': (BuildContext context) => WorkPage(),
                 '/writepage': (BuildContext context) => WritePage(),
                 '/yespage': (BuildContext context) => YesPage(),
-                '/placeholder': (BuildContext context) => Placeholder(),
+                '/placeholder': (BuildContext context) => PlaceHolder(),
               },
             ),
           );

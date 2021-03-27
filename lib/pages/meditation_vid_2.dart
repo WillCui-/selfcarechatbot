@@ -1,4 +1,4 @@
-import 'package:chatbot_test1/widgets/app_bar.dart';
+import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -21,21 +21,18 @@ class _MeditationVid2 extends State<MeditationVid2> {
         mute: false,
       ),
     );
-    return Scaffold(
-      appBar: MainAppBar(
-        'Welcome to a 20-min Meditation!',
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.teal,
-        child: Container(
+    return AppPage(
+      header: 'Welcome to a 20-min Meditation!',
+      image: false,
+      buttons: [
+        Container(
           padding: EdgeInsets.all(10.0),
           child: YoutubePlayer(
             controller: _controller,
             liveUIColor: Colors.amber,
           ),
         ),
-      ),
+      ],
     );
   }
 }

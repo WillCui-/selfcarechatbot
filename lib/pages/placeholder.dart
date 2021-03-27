@@ -21,9 +21,10 @@ class _PlaceHolder extends State<PlaceHolder> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image(
-                image: AssetImage('assets/penguin.png'),
-                height: 200,
-                width: 200),
+              image: AssetImage('assets/penguin.png'),
+              height: 200,
+              width: 200,
+            ),
             ScreenTitle('To be continued...')
           ],
         ),
