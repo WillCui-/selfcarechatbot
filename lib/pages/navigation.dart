@@ -12,24 +12,14 @@ class _Navigation extends State<Navigation> {
   Widget build(BuildContext context) {
     return AppPage(
       header: 'Navigation',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Daily Check-in',
-            onPressed: () {
-              Navigator.pushNamed(context, '/checkin');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Daily Check-in',
+          '/checkin',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Meditation',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditation');
-            },
-          ),
+        SingleChoiceButton(
+          'Meditation',
+          '/meditation',
         ),
       ],
     );

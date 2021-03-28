@@ -25,7 +25,7 @@ class _MeditationVid1 extends State<MeditationVid1> {
     return AppPage(
       header: 'Welcome to a 10-min Meditation!',
       image: false,
-      buttons: [
+      children: [
         Container(
           padding: EdgeInsets.all(10.0),
           child: YoutubePlayer(
@@ -35,21 +35,5 @@ class _MeditationVid1 extends State<MeditationVid1> {
         ),
       ],
     );
-    // return Scaffold(
-    //   appBar: MainAppBar(
-    //     'Welcome to a 10-min Meditation!',
-    //   ),
-    //   body: Container(
-    //     alignment: Alignment.center,
-    //     color: Colors.teal,
-    //     child: Container(
-    //       padding: EdgeInsets.all(10.0),
-    //       child: YoutubePlayer(
-    //         controller: _controller,
-    //         liveUIColor: Colors.amber,
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

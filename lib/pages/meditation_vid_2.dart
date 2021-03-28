@@ -24,7 +24,7 @@ class _MeditationVid2 extends State<MeditationVid2> {
     return AppPage(
       header: 'Welcome to a 20-min Meditation!',
       image: false,
-      buttons: [
+      children: [
         Container(
           padding: EdgeInsets.all(10.0),
           child: YoutubePlayer(

@@ -13,24 +13,14 @@ class _Meditation extends State<Meditation> {
     return AppPage(
       header: 'Meditation History',
       text: 'Have you meditated before?',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Yes',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationduration');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Yes',
+          '/meditationduration',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'No',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationinfo/1');
-            },
-          ),
+        SingleChoiceButton(
+          'No',
+          '/meditationinfo/1',
         ),
       ],
     );

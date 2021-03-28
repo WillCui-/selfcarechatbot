@@ -22,7 +22,7 @@ class _MeditationInfoMore extends State<MeditationInfoMore> {
           '  without any judgment.\n'
           '\n  Meditation is the training of attention \n  which cultivates that mindfulness.”'
           '\n                           - Tara Brach\n',
-      buttons: [
+      children: [
         Padding(
           padding: EdgeInsets.all(10.0),
           child: MaterialButton(
@@ -42,14 +42,9 @@ class _MeditationInfoMore extends State<MeditationInfoMore> {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Start',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationduration');
-            },
-          ),
+        SingleChoiceButton(
+          'Start',
+          '/meditationduration',
         ),
       ],
     );

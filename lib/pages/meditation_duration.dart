@@ -14,24 +14,14 @@ class _MeditationDuration extends State<MeditationDuration> {
       header: 'Meditation Duration',
       text: 'How long would you like to \n'
           'meditate today?\n',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            '10 minutes',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationvid/1');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          '10 minutes',
+          '/meditationvid/1',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            '20 minutes',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationvid/2');
-            },
-          ),
+        SingleChoiceButton(
+          '20 minutes',
+          '/meditationvid/2',
         ),
       ],
     );

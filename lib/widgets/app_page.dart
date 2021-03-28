@@ -7,12 +7,12 @@ class AppPage extends StatefulWidget {
       {Key key,
       this.header,
       this.text,
-      this.buttons = const [],
+      this.children = const [],
       this.image = true})
       : super(key: key);
   final String header;
   final String text;
-  final List<Widget> buttons;
+  final List<Widget> children;
 
   // Boolean value to mark if the penguin image should be shown. Default: true
   final bool image;
@@ -40,7 +40,7 @@ class _AppPage extends State<AppPage> {
                   ),
                 if (widget.text != null) ScreenTitle(widget.text),
               ] +
-              widget.buttons,
+              widget.children,
         ),
       ),
     );

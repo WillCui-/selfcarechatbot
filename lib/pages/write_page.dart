@@ -13,7 +13,7 @@ class _WritePage extends State<WritePage> {
     return AppPage(
       header: "Journal of the Day",
       text: 'Write down what you have in mind:\n',
-      buttons: [
+      children: [
         Padding(
             padding: EdgeInsets.fromLTRB(32.0, 5.0, 32.0, 4.0),
             child: TextField(
@@ -28,14 +28,9 @@ class _WritePage extends State<WritePage> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white)),
                     fillColor: Colors.white))),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Done',
-            onPressed: () {
-              Navigator.pushNamed(context, '/placeholder');
-            },
-          ),
+        SingleChoiceButton(
+          'Done',
+          '/placeholder',
         ),
       ],
     );

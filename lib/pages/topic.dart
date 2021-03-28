@@ -13,30 +13,14 @@ class _Topic extends State<Topic> {
     return AppPage(
       header: 'Choose an area:',
       text: 'Which areas of your life are impacted?',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Family',
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/placeholder',
-              );
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Family',
+          '/placeholder',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Work',
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/workpage',
-              );
-            },
-          ),
+        SingleChoiceButton(
+          'Work',
+          '/workpage',
         ),
       ],
     );

@@ -13,24 +13,14 @@ class _MeditationInfo extends State<MeditationInfo> {
     return AppPage(
       header: 'Meditation Page',
       text: 'Meditation is a way to train the mind\n',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Learn More',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationinfo/2');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Learn More',
+          '/meditationinfo/2',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Start',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationduration');
-            },
-          ),
+        SingleChoiceButton(
+          'Start',
+          '/meditationduration',
         ),
       ],
     );

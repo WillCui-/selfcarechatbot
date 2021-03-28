@@ -13,24 +13,14 @@ class _YesPage extends State<YesPage> {
     return AppPage(
       header: "Let's challenge it!",
       text: 'What would you like to do?',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Tell me more about it!',
-            onPressed: () {
-              Navigator.pushNamed(context, '/writepage');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Tell me more about it!',
+          '/writepage',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Meditate',
-            onPressed: () {
-              Navigator.pushNamed(context, '/meditationinfo/1');
-            },
-          ),
+        SingleChoiceButton(
+          'Meditate',
+          '/meditationinfo/1',
         ),
       ],
     );

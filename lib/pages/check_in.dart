@@ -13,24 +13,14 @@ class _CheckIn extends State<CheckIn> {
     return AppPage(
       header: 'Daily Check-in',
       text: 'How are you today?',
-      buttons: [
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Good :-)',
-            onPressed: () {
-              Navigator.pushNamed(context, '/goodtohear');
-            },
-          ),
+      children: [
+        SingleChoiceButton(
+          'Good :-)',
+          '/goodtohear',
         ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-          child: SingleChoiceButton(
-            'Bad :-(',
-            onPressed: () {
-              Navigator.pushNamed(context, '/topic');
-            },
-          ),
+        SingleChoiceButton(
+          'Bad :-(',
+          '/topic',
         ),
       ],
     );
