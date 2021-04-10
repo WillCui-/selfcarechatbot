@@ -5,7 +5,7 @@ import 'package:chatbot_test1/pages/check_in/check_in_page.dart';
 import 'package:chatbot_test1/pages/check_in/good_to_hear_page.dart';
 import 'package:chatbot_test1/pages/check_in/journal_page.dart';
 import 'package:chatbot_test1/pages/check_in/topics_page.dart';
-import 'package:chatbot_test1/pages/check_in/work_page.dart';
+import 'package:chatbot_test1/pages/check_in/thought_page.dart';
 import 'package:chatbot_test1/pages/home_page.dart';
 import 'package:chatbot_test1/pages/meditation/meditation_duration_page.dart';
 import 'package:chatbot_test1/pages/meditation/meditation_info_more_page.dart';
@@ -27,17 +27,17 @@ final routes = <String, WidgetBuilder>{
       // title: "Home Page",
       ),
   '/checkin': (BuildContext context) => CheckInPage(),
-  '/goodtohear': (BuildContext context) => GoodToHearPage(),
-  '/meditation': (BuildContext context) => MeditationPage(),
-  '/meditationduration': (BuildContext context) => MeditationDurationPage(),
-  '/meditationinfo/1': (BuildContext context) => MeditationInfoPage(),
-  '/meditationinfo/2': (BuildContext context) => MeditationInfoMorePage(),
-  '/meditationvid/1': (BuildContext context) => MeditationVid1Page(),
-  '/meditationvid/2': (BuildContext context) => MeditationVid2Page(),
-  '/navigation': (BuildContext context) => NavigationPage(),
-  '/topic': (BuildContext context) => TopicsPage(),
-  '/workpage': (BuildContext context) => WorkPage(),
+  '/checkin/topics': (BuildContext context) => TopicsPage(),
+  '/checkin/thought': (BuildContext context) => ThoughtPage(),
   '/writepage': (BuildContext context) => JournalPage(),
   '/yespage': (BuildContext context) => ChallengePage(),
+  '/goodtohear': (BuildContext context) => GoodToHearPage(),
+  '/meditation': (BuildContext context) => MeditationPage(),
+  '/meditation/duration': (BuildContext context) => MeditationDurationPage(),
+  '/meditation/info/1': (BuildContext context) => MeditationInfoPage(),
+  '/meditation/info/2': (BuildContext context) => MeditationInfoMorePage(),
+  '/meditation/vid/1': (BuildContext context) => MeditationVid1Page(),
+  '/meditation/vid/2': (BuildContext context) => MeditationVid2Page(),
+  '/navigation': (BuildContext context) => NavigationPage(),
   '/placeholder': (BuildContext context) => PlaceHolderPage(),
 };

@@ -44,7 +44,7 @@ class _MeditationInfoMorePage extends State<MeditationInfoMorePage> {
         ),
         SingleChoiceButton(
           'Start',
-          '/meditationduration',
+          '/meditation/duration',
         ),
       ],
     );

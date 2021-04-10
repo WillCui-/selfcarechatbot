@@ -16,11 +16,11 @@ class _MeditationInfoPage extends State<MeditationInfoPage> {
       children: [
         SingleChoiceButton(
           'Learn More',
-          '/meditationinfo/2',
+          '/meditation/info/2',
         ),
         SingleChoiceButton(
           'Start',
-          '/meditationduration',
+          '/meditation/duration',
         ),
       ],
     );

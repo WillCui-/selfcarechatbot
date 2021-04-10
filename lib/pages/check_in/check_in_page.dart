@@ -20,7 +20,7 @@ class _CheckInPage extends State<CheckInPage> {
         ),
         SingleChoiceButton(
           'Bad :-(',
-          '/topic',
+          '/checkin/topics',
         ),
       ],
     );

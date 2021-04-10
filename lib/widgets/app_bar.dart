@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:chatbot_test1/models/user.dart';
+import 'package:chatbot_test1/models/user_model.dart';
 
 class _AppBarTitle extends StatelessWidget {
   final String text;

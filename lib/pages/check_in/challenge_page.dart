@@ -20,7 +20,7 @@ class _ChallengePage extends State<ChallengePage> {
         ),
         SingleChoiceButton(
           'Meditate',
-          '/meditationinfo/1',
+          '/meditation/info/1',
         ),
       ],
     );

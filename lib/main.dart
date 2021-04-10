@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+import 'package:chatbot_test1/models/check_in_model.dart';
 import 'package:chatbot_test1/models/user_model.dart';
 import 'package:chatbot_test1/splash.dart';
 import 'package:chatbot_test1/routes.dart';
@@ -12,6 +13,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp(
     userModel: UserModel(),
+    checkInModel: CheckInModel(),
   ));
 }
 
@@ -20,10 +22,12 @@ class MyApp extends StatelessWidget {
   final FirebaseAnalytics analytics = FirebaseAnalytics();
 
   final UserModel userModel;
+  final CheckInModel checkInModel;
 
   MyApp({
     Key key,
     @required this.userModel,
+    @required this.checkInModel,
   }) : super(key: key);
 
   @override
@@ -50,8 +54,11 @@ class MyApp extends StatelessWidget {
 
         if (snapshot.connectionState == ConnectionState.done) {
           return ScopedModel<UserModel>(
-            model: userModel,
-            child: materialApp,
+            model: this.userModel,
+            child: ScopedModel<CheckInModel>(
+              model: this.checkInModel,
+              child: materialApp,
+            ),
           );
         }
 

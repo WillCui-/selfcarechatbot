@@ -17,11 +17,11 @@ class _MeditationDurationPage extends State<MeditationDurationPage> {
       children: [
         SingleChoiceButton(
           '10 minutes',
-          '/meditationvid/1',
+          '/meditation/vid/1',
         ),
         SingleChoiceButton(
           '20 minutes',
-          '/meditationvid/2',
+          '/meditation/vid/2',
         ),
       ],
     );

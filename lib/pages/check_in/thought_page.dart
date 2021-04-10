@@ -5,29 +5,27 @@ import 'package:chatbot_test1/models/check_in_model.dart';
 import 'package:chatbot_test1/pages/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 
-class TopicsPage extends StatefulWidget {
+class ThoughtPage extends StatefulWidget {
   @override
-  _TopicsPage createState() => _TopicsPage();
+  _ThoughtPage createState() => _ThoughtPage();
 }
 
-class _TopicsPage extends State<TopicsPage> {
+class _ThoughtPage extends State<ThoughtPage> {
   @override
   Widget build(BuildContext context) {
     final checkInModel = ScopedModel.of<CheckInModel>(context, rebuildOnChange: true);
 
     return AppPage(
-      header: 'Choose an area:',
-      text: 'Which areas of your life are impacted?',
+      header: 'Thought',
+      text: 'Is this you thought: ${topicTexts[checkInModel.topic]}',
       children: [
         SingleChoiceButton(
-          'Family',
-          '/checkin/thought',
-          onPressed: () => checkInModel.topic = CheckInTopics.family,
+          'Yes',
+          '/yespage',
         ),
         SingleChoiceButton(
-          'Work',
-          '/checkin/thought',
-          onPressed: () => checkInModel.topic = CheckInTopics.work,
+          'No',
+          '/placeholder',
         ),
       ],
     );
