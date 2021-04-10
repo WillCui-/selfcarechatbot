@@ -2,25 +2,25 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class YesPage extends StatefulWidget {
+class TopicsPage extends StatefulWidget {
   @override
-  _YesPage createState() => _YesPage();
+  _TopicsPage createState() => _TopicsPage();
 }
 
-class _YesPage extends State<YesPage> {
+class _TopicsPage extends State<TopicsPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(
-      header: "Let's challenge it!",
-      text: 'What would you like to do?',
+      header: 'Choose an area:',
+      text: 'Which areas of your life are impacted?',
       children: [
         SingleChoiceButton(
-          'Tell me more about it!',
-          '/writepage',
+          'Family',
+          '/placeholder',
         ),
         SingleChoiceButton(
-          'Meditate',
-          '/meditationinfo/1',
+          'Work',
+          '/workpage',
         ),
       ],
     );

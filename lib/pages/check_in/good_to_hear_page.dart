@@ -1,12 +1,12 @@
 import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:flutter/material.dart';
 
-class GoodToHear extends StatefulWidget {
+class GoodToHearPage extends StatefulWidget {
   @override
-  _GoodToHear createState() => _GoodToHear();
+  _GoodToHearPage createState() => _GoodToHearPage();
 }
 
-class _GoodToHear extends State<GoodToHear> {
+class _GoodToHearPage extends State<GoodToHearPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(

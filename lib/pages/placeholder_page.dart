@@ -2,12 +2,12 @@ import 'package:chatbot_test1/widgets/app_bar.dart';
 import 'package:chatbot_test1/widgets/screen_title.dart';
 import 'package:flutter/material.dart';
 
-class PlaceHolder extends StatefulWidget {
+class PlaceHolderPage extends StatefulWidget {
   @override
-  _PlaceHolder createState() => _PlaceHolder();
+  _PlaceHolderPage createState() => _PlaceHolderPage();
 }
 
-class _PlaceHolder extends State<PlaceHolder> {
+class _PlaceHolderPage extends State<PlaceHolderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

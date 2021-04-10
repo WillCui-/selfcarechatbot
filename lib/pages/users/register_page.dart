@@ -1,15 +1,15 @@
-import 'package:chatbot_test1/home.dart';
+import 'package:chatbot_test1/pages/home_page.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Register extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterPageState extends State<RegisterPage> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
   final FirebaseAnalytics analytics = FirebaseAnalytics();
 

@@ -2,25 +2,25 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class Topic extends StatefulWidget {
+class CheckInPage extends StatefulWidget {
   @override
-  _Topic createState() => _Topic();
+  _CheckInPage createState() => _CheckInPage();
 }
 
-class _Topic extends State<Topic> {
+class _CheckInPage extends State<CheckInPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(
-      header: 'Choose an area:',
-      text: 'Which areas of your life are impacted?',
+      header: 'Daily Check-in',
+      text: 'How are you today?',
       children: [
         SingleChoiceButton(
-          'Family',
-          '/placeholder',
+          'Good :-)',
+          '/goodtohear',
         ),
         SingleChoiceButton(
-          'Work',
-          '/workpage',
+          'Bad :-(',
+          '/topic',
         ),
       ],
     );

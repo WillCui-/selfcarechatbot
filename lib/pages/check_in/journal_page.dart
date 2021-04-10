@@ -2,12 +2,12 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class WritePage extends StatefulWidget {
+class JournalPage extends StatefulWidget {
   @override
-  _WritePage createState() => _WritePage();
+  _JournalPage createState() => _JournalPage();
 }
 
-class _WritePage extends State<WritePage> {
+class _JournalPage extends State<JournalPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(

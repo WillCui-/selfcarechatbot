@@ -2,24 +2,25 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class Navigation extends StatefulWidget {
+class ChallengePage extends StatefulWidget {
   @override
-  _Navigation createState() => _Navigation();
+  _ChallengePage createState() => _ChallengePage();
 }
 
-class _Navigation extends State<Navigation> {
+class _ChallengePage extends State<ChallengePage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(
-      header: 'Navigation',
+      header: "Let's challenge it!",
+      text: 'What would you like to do?',
       children: [
         SingleChoiceButton(
-          'Daily Check-in',
-          '/checkin',
+          'Tell me more about it!',
+          '/writepage',
         ),
         SingleChoiceButton(
-          'Meditation',
-          '/meditation',
+          'Meditate',
+          '/meditationinfo/1',
         ),
       ],
     );

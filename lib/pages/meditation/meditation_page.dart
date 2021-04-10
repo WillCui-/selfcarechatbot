@@ -2,12 +2,12 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class Meditation extends StatefulWidget {
+class MeditationPage extends StatefulWidget {
   @override
-  _Meditation createState() => _Meditation();
+  _MeditationPage createState() => _MeditationPage();
 }
 
-class _Meditation extends State<Meditation> {
+class _MeditationPage extends State<MeditationPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(

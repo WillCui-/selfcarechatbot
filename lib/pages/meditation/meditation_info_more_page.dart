@@ -3,12 +3,12 @@ import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MeditationInfoMore extends StatefulWidget {
+class MeditationInfoMorePage extends StatefulWidget {
   @override
-  _MeditationInfoMore createState() => _MeditationInfoMore();
+  _MeditationInfoMorePage createState() => _MeditationInfoMorePage();
 }
 
-class _MeditationInfoMore extends State<MeditationInfoMore> {
+class _MeditationInfoMorePage extends State<MeditationInfoMorePage> {
   void _launchURL(String _url) async => await canLaunch(_url)
       ? await launch(_url)
       : throw 'Could not launch $_url';

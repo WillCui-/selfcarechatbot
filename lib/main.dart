@@ -1,22 +1,22 @@
-import 'package:chatbot_test1/pages/check_in.dart';
-import 'package:chatbot_test1/pages/good_to_hear.dart';
-import 'package:chatbot_test1/pages/meditation.dart';
-import 'package:chatbot_test1/pages/meditation_duration.dart';
-import 'package:chatbot_test1/pages/meditation_info.dart';
-import 'package:chatbot_test1/pages/meditation_info_more.dart';
-import 'package:chatbot_test1/pages/meditation_vid_1.dart';
-import 'package:chatbot_test1/pages/meditation_vid_2.dart';
-import 'package:chatbot_test1/pages/navigation.dart';
-import 'package:chatbot_test1/pages/placeholder.dart';
-import 'package:chatbot_test1/pages/topic.dart';
-import 'package:chatbot_test1/pages/work_page.dart';
-import 'package:chatbot_test1/pages/write_page.dart';
-import 'package:chatbot_test1/pages/yes_page.dart';
+import 'package:chatbot_test1/pages/check_in/check_in_page.dart';
+import 'package:chatbot_test1/pages/check_in/good_to_hear_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_duration_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_info_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_info_more_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_vid_1_page.dart';
+import 'package:chatbot_test1/pages/meditation/meditation_vid_2_page.dart';
+import 'package:chatbot_test1/pages/navigation_page.dart';
+import 'package:chatbot_test1/pages/placeholder_page.dart';
+import 'package:chatbot_test1/pages/check_in/topics_page.dart';
+import 'package:chatbot_test1/pages/check_in/work_page.dart';
+import 'package:chatbot_test1/pages/check_in/journal_page.dart';
+import 'package:chatbot_test1/pages/check_in/challenge_page.dart';
 import 'package:chatbot_test1/models/user.dart';
 import 'package:chatbot_test1/splash.dart';
-import 'package:chatbot_test1/home.dart';
-import 'package:chatbot_test1/pages/register.dart';
-import 'package:chatbot_test1/pages/login.dart';
+import 'package:chatbot_test1/pages/home_page.dart';
+import 'package:chatbot_test1/pages/users/register_page.dart';
+import 'package:chatbot_test1/pages/users/login_page.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -65,25 +65,25 @@ class MyApp extends StatelessWidget {
               home: Splash(),
               routes: <String, WidgetBuilder>{
                 '/splash': (BuildContext context) => Splash(),
-                '/register': (BuildContext context) => Register(),
-                '/login': (BuildContext context) => Login(),
+                '/register': (BuildContext context) => RegisterPage(),
+                '/login': (BuildContext context) => LoginPage(),
                 '/home': (BuildContext context) => HomePage(
                     // title: "Home Page",
                     ),
-                '/checkin': (BuildContext context) => CheckIn(),
-                '/goodtohear': (BuildContext context) => GoodToHear(),
-                '/meditation': (BuildContext context) => Meditation(),
-                '/meditationduration': (BuildContext context) => MeditationDuration(),
-                '/meditationinfo/1': (BuildContext context) => MeditationInfo(),
-                '/meditationinfo/2': (BuildContext context) => MeditationInfoMore(),
-                '/meditationvid/1': (BuildContext context) => MeditationVid1(),
-                '/meditationvid/2': (BuildContext context) => MeditationVid2(),
-                '/navigation': (BuildContext context) => Navigation(),
-                '/topic': (BuildContext context) => Topic(),
+                '/checkin': (BuildContext context) => CheckInPage(),
+                '/goodtohear': (BuildContext context) => GoodToHearPage(),
+                '/meditation': (BuildContext context) => MeditationPage(),
+                '/meditationduration': (BuildContext context) => MeditationDurationPage(),
+                '/meditationinfo/1': (BuildContext context) => MeditationInfoPage(),
+                '/meditationinfo/2': (BuildContext context) => MeditationInfoMorePage(),
+                '/meditationvid/1': (BuildContext context) => MeditationVid1Page(),
+                '/meditationvid/2': (BuildContext context) => MeditationVid2Page(),
+                '/navigation': (BuildContext context) => NavigationPage(),
+                '/topic': (BuildContext context) => TopicsPage(),
                 '/workpage': (BuildContext context) => WorkPage(),
-                '/writepage': (BuildContext context) => WritePage(),
-                '/yespage': (BuildContext context) => YesPage(),
-                '/placeholder': (BuildContext context) => PlaceHolder(),
+                '/writepage': (BuildContext context) => JournalPage(),
+                '/yespage': (BuildContext context) => ChallengePage(),
+                '/placeholder': (BuildContext context) => PlaceHolderPage(),
               },
             ),
           );

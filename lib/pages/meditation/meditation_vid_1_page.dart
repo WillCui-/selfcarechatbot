@@ -2,17 +2,18 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class MeditationVid2 extends StatefulWidget {
+class MeditationVid1Page extends StatefulWidget {
   @override
-  _MeditationVid2 createState() => _MeditationVid2();
+  _MeditationVid1Page createState() => _MeditationVid1Page();
 }
 
-class _MeditationVid2 extends State<MeditationVid2> {
+class _MeditationVid1Page extends State<MeditationVid1Page> {
   @override
   Widget build(BuildContext context) {
-    String videoId;
+    String videoId; // this could be replaced with an if statement
+    // and just change the link and the title
     videoId = YoutubePlayer.convertUrlToId(
-        "https://www.youtube.com/watch?v=-2zdUXve6fQ&t=104s");
+        "https://m.youtube.com/watch?v=ZToicYcHIOU");
 
     YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: videoId,
@@ -22,7 +23,7 @@ class _MeditationVid2 extends State<MeditationVid2> {
       ),
     );
     return AppPage(
-      header: 'Welcome to a 20-min Meditation!',
+      header: 'Welcome to a 10-min Meditation!',
       image: false,
       children: [
         Container(

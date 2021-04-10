@@ -2,25 +2,24 @@ import 'package:chatbot_test1/widgets/app_page.dart';
 import 'package:chatbot_test1/widgets/single_choice_button.dart';
 import 'package:flutter/material.dart';
 
-class CheckIn extends StatefulWidget {
+class NavigationPage extends StatefulWidget {
   @override
-  _CheckIn createState() => _CheckIn();
+  _NavigationPage createState() => _NavigationPage();
 }
 
-class _CheckIn extends State<CheckIn> {
+class _NavigationPage extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
     return AppPage(
-      header: 'Daily Check-in',
-      text: 'How are you today?',
+      header: 'Navigation',
       children: [
         SingleChoiceButton(
-          'Good :-)',
-          '/goodtohear',
+          'Daily Check-in',
+          '/checkin',
         ),
         SingleChoiceButton(
-          'Bad :-(',
-          '/topic',
+          'Meditation',
+          '/meditation',
         ),
       ],
     );
