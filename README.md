@@ -13,6 +13,7 @@ Note: Package structure created by Flutter's app template.
   - [Start the app](#start-the-app)
     - [Start the web app](#start-the-web-app)
     - [Start the iOS app](#start-the-ios-app)
+- [Troubleshooting](#troubleshooting)
 
 # Development
 
@@ -53,3 +54,13 @@ flutter run -d chrome
 ```
 flutter run
 ```
+
+# Troubleshooting
+
+<details>
+<summary>
+Error: CocoaPods's specs repository is too out-of-date to satisfy dependencies.
+</summary>
+
+Follow the instructions [here](https://stackoverflow.com/a/64474526).
+</details>
