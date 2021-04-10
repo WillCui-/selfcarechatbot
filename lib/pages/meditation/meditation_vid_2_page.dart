@@ -1,4 +1,4 @@
-import 'package:chatbot_test1/widgets/app_page.dart';
+import 'package:chatbot_test1/pages/app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
