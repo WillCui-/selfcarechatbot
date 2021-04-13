@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                                   analytics.logEvent(name: 'guest'),
                                   FirebaseFirestore.instance
                                       .collection("users")
-                                      .doc(user.user.uid)
+                                      .doc("guest")
                                       .update({
                                     "loginTimes":
                                         FieldValue.arrayUnion([DateTime.now()]),
