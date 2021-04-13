@@ -165,6 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text("Continue as guest"),
                         onPressed: () {
                           userModel.isGuest = true;
+                          analytics.logEvent(name: 'guest');
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
