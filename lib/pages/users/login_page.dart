@@ -165,15 +165,29 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text("Continue as guest"),
                         onPressed: () {
                           userModel.isGuest = true;
-                          analytics.logEvent(name: 'guest');
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(
-                                title: "Guest Home Page",
-                              ),
-                            ),
-                          );
+                          FirebaseAuth.instance
+                              .signInAnonymously()
+                              .then(
+                                (user) => {
+                                  analytics.logEvent(name: 'guest'),
+                                  FirebaseFirestore.instance
+                                      .collection("users")
+                                      .doc(user.user.uid)
+                                      .update({
+                                    "loginTimes":
+                                        FieldValue.arrayUnion([DateTime.now()]),
+                                  }).catchError(print),
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => HomePage(
+                                        title: "Guest Home Page",
+                                      ),
+                                    ),
+                                  ),
+                                },
+                              )
+                              .catchError(print);
                         },
                       ),
                     ),
